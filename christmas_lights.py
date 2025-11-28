@@ -101,3 +101,45 @@ class LightGrid:
             self.turn_off(x1, y1, x2, y2)
         elif action == "toggle":
             self.toggle(x1, y1, x2, y2)
+
+
+if __name__ == "__main__":
+
+    print("="*50)
+    print("TESTS DES EXEMPLES")
+    print("="*50)
+    
+    # Test 1: turn on toutes les lumières
+    test1 = LightGrid()
+    test1.turn_on(0, 0, 999, 999)
+    print(f"Test 1 - Toutes allumées : {test1.count_lights_on()} lumières")
+    
+    # Test 2: toggle 1er ligne
+    test2 = LightGrid()
+    test2.toggle(0, 0, 999, 0)
+    print(f"Test 2 - Toggle première ligne : {test2.count_lights_on()} lumières")
+    
+    # Test 3: éteindre 4 lumières au milieu
+    test3 = LightGrid()
+    test3.turn_on(0, 0, 999, 999)
+    test3.turn_off(499, 499, 500, 500)
+    print(f"Test 3 - Après extinction 4 : {test3.count_lights_on()} lumières")
+    
+    print("\n" + "="*50)
+    print("RÉSOLUTION DU KATA")
+    print("="*50)
+    
+    santa_lights = LightGrid()
+    
+    with open('instructions.txt', 'r') as f:
+    # with open('C:\Users\youce\Documents\SIPMLON\christmas-lights-kata\instructions.txt', 'r') as f:
+        instructions = f.readlines()
+    
+    for instruction in instructions:
+        instruction = instruction.strip()
+        if instruction:
+            santa_lights.execute_instruction(instruction)
+            print(f"✓ Exécuté: {instruction}")
+    
+    result = santa_lights.count_lights_on()
+    print(f"\n🎄 RÉPONSE PARTIE 1: {result} lumières allumées 🎄")
