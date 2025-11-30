@@ -37,3 +37,16 @@ class BrightnessLightGrid:
         for x in range(x1, x2 + 1):
             for y in range(y1, y2 + 1):
                 self.grid[x][y] += 1
+
+    def turn_off(self, x1, y1, x2, y2):
+        """
+        Diminue la luminosité de 1 dans une zone rectangulaire
+        La luminosité ne peut PAS être négative (minimum = 0)
+        
+        Args:
+            x1, y1: Coordonnées du coin supérieur gauche
+            x2, y2: Coordonnées du coin inférieur droit
+        """
+        for x in range(x1, x2 + 1):
+            for y in range(y1, y2 + 1):
+                self.grid[x][y] = max(0, self.grid[x][y] - 1)
