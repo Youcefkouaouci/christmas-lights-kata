@@ -22,3 +22,18 @@ class BrightnessLightGrid:
         for row in self.grid:
             total += sum(row)
         return total
+    
+    def turn_on(self, x1, y1, x2, y2):
+        """
+        Augmente la luminosité de 1 dans une zone rectangulaire
+        
+        DIFFÉRENCE PARTIE 1 : au lieu de mettre à True,
+        on AJOUTE 1 à la valeur actuelle
+        
+        Args:
+            x1, y1: Coordonnées du coin supérieur gauche
+            x2, y2: Coordonnées du coin inférieur droit
+        """
+        for x in range(x1, x2 + 1):
+            for y in range(y1, y2 + 1):
+                self.grid[x][y] += 1
