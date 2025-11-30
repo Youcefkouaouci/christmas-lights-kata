@@ -50,3 +50,18 @@ class BrightnessLightGrid:
         for x in range(x1, x2 + 1):
             for y in range(y1, y2 + 1):
                 self.grid[x][y] = max(0, self.grid[x][y] - 1)
+    
+    def toggle(self, x1, y1, x2, y2):
+        """
+        Augmente la luminosité de 2 dans une zone rectangulaire
+        
+        DIFFÉRENCE PARTIE 1 : au lieu d'inverser True/False,
+        on AJOUTE 2 à la luminosité
+        
+        Args:
+            x1, y1: Coordonnées du coin supérieur gauche
+            x2, y2: Coordonnées du coin inférieur droit
+        """
+        for x in range(x1, x2 + 1):
+            for y in range(y1, y2 + 1):
+                self.grid[x][y] += 2
